@@ -1,264 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Psykologen mod Røvsved™ — Dr. Svedsen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#fff;
-      --card:#f7fbff;
-      --accent:#0b5cff;
-      --muted:#666;
-      --glass: rgba(255,255,255,0.6);
-      --danger:#ff6b6b;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#f0f8ff 0%, #fff 60%);color:#0b2340;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
-    .wrap{width:100%;max-width:980px}
-
-    header{display:flex;gap:16px;align-items:center;margin-bottom:20px}
-    .logo{width:84px;height:84px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#2bb673);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:28px;box-shadow:0 6px 18px rgba(11,92,255,0.12)}
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-
-    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(16,40,80,0.06)}
-
-    .hero{padding:26px;border-radius:14px;background:linear-gradient(180deg, rgba(11,92,255,0.06), rgba(43,182,115,0.03));}
-    .hero h2{margin:0 0 8px}
-    .hero p{margin:0 0 14px}
-
-    .services{display:flex;flex-direction:column;gap:10px}
-    .service{display:flex;gap:12px;align-items:flex-start}
-    .service .icon{width:44px;height:44;border-radius:10px;background:white;display:grid;place-items:center;font-weight:700;box-shadow:0 6px 20px rgba(11,92,255,0.06)}
-
-    .svedometer{display:flex;flex-direction:column;gap:12px;align-items:center}
-    .meter{width:100%;height:16px;background:linear-gradient(90deg,#e6f0ff,#fff);border-radius:999px;overflow:hidden}
-    .fill{height:100%;width:20%;border-radius:999px;background:linear-gradient(90deg,var(--accent),#2bb673)}
-    .meter-label{display:flex;justify-content:space-between;width:100%;font-size:13px;color:var(--muted)}
-
-    .testimonials{display:flex;flex-direction:column;gap:12px}
-    blockquote{margin:0;padding:12px;border-left:4px solid rgba(11,92,255,0.12);background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));border-radius:8px}
-
-    aside .booking{position:sticky;top:24px}
-    .book-btn{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
-
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(6,12,24,0.4)}
-    .modal.open{display:flex}
-    .modal .panel{width:100%;max-width:540px;background:white;padding:20px;border-radius:12px}
-    label{display:block;font-size:13px;margin-bottom:6px}
-    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eefb;margin-bottom:10px}
-
-    .tiny{font-size:12px;color:var(--muted)}
-
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr;}
-      aside .booking{position:relative;top:auto}
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Røvsved-Psykologen™</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #f0f8ff, #ffffff);
+    color: #0b2340;
+  }
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ff6b6b;
+    color: white;
+  }
+  header h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  header p {
+    font-size: 1.2em;
+    margin-top: 8px;
+  }
+  main {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+  }
+  .card {
+    background: #fff7f7;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  .book-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: #ff6b6b;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+  }
+  .book-btn:hover {
+    background: #e35656;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.85em;
+    color: #666;
+    padding: 20px;
+  }
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <header>
-      <div class="logo">RS</div>
-      <div>
-        <h1>Psykologen mod <span style="color:var(--danger)">Røvsved</span>™</h1>
-        <p class="lead">Fordi livet er for kort til klamme bukser — velkommen til Dr. Per Svedsen.</p>
-      </div>
-    </header>
 
-    <div class="grid">
-      <section>
-        <div class="card hero">
-          <h2>Velkommen — vi tager både dig og din bagdel alvorligt</h2>
-          <p>Her kombinerer vi klinisk psykologi, praktiske buksetips og en smule (velplaceret) humor. Ingen skam — kun tørre skridt fremad.</p>
+<header>
+  <h1>Røvsved-Psykologen™</h1>
+  <p>Fordi vi tager både dig og din bagdel alvorligt</p>
+</header>
 
-          <div style="margin-top:14px" class="services">
-            <div class="service">
-              <div class="icon">🛋️</div>
-              <div>
-                <strong>Samtaleterapi</strong>
-                <div class="tiny">Find årsagerne — stress, præstationsangst eller bare for tætsiddende jeans.</div>
-              </div>
-            </div>
+<main>
+  <div class="card">
+    <h2>Velkommen til Røvsved-Psykologen</h2>
+    <p>Hos Dr. Per Svedsen arbejder vi med de mentale følger af røvsved.  
+    Her er der plads til både alvor og grin – for når man kan tale om det, kan man håndtere det.</p>
+    <p>Er du klar til at finde ud af, om dine bukser skjuler et psykisk tryk? Klik herunder for at tage vores videnskabeligt tvivlsomme svedtest:</p>
+    <button class="book-btn" id="startTest">Tag svedtesten</button>
+  </div>
 
-            <div class="service">
-              <div class="icon">🧘</div>
-              <div>
-                <strong>Mindfulness & åndedræt</strong>
-                <div class="tiny">Enkle teknikker til at køle både hoved og hofter.</div>
-              </div>
-            </div>
+  <div class="card">
+    <h2>Hvad vi tilbyder</h2>
+    <ul>
+      <li><strong>Samtaleterapi:</strong> Find roen – og måske tørre bukser</li>
+      <li><strong>Mindfulness mod fugt:</strong> Lær teknikker der køler sind og sæde</li>
+      <li><strong>Bukse-benchmark:</strong> Vi tester materialer, så du slipper for det</li>
+    </ul>
+  </div>
 
-            <div class="service">
-              <div class="icon">👖</div>
-              <div>
-                <strong>Bukse-benchmark</strong>
-                <div class="tiny">Praktiske tekstiler og snit-anbefalinger (ja, vi tester dem).</div>
-              </div>
-            </div>
-          </div>
+  <div class="card">
+    <h2>Kundeudtalelser</h2>
+    <blockquote>“Jeg troede ikke, man kunne tale om røvsved med en psykolog… men nu er jeg både tør og lykkeligere.” – Mette, 34</blockquote>
+    <blockquote>“Dr. Svedsen reddede både mit ægteskab og mine kontorstole.” – Jens, 48</blockquote>
+  </div>
+</main>
 
-          <hr style="margin:16px 0;border:none;border-top:1px solid rgba(11,92,255,0.06)">
+<footer>
+  © 2025 Røvsved-Psykologen™ – Til underholdning. Ikke erstatning for lægehjælp.
+</footer>
 
-          <div class="svedometer">
-            <div style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px">
-              <div style="flex:1">
-                <div class="meter" aria-hidden="true"><div class="fill" id="fill" style="width:22%"></div></div>
-                <div class="meter-label"><span id="sved-percent">22%</span><span class="tiny">Røvsved-index</span></div>
-              </div>
-              <button id="relaxBtn" class="book-btn" style="background:#2bb673">Prøv åndedræt</button>
-            </div>
-            <div class="tiny">Tip: Tryk på "Prøv åndedræt" fem gange — eller brug vores 30 sekunders guidede vejrtrækning.</div>
-          </div>
-        </div>
+<script>
+  document.getElementById('startTest').addEventListener('click', function() {
+    window.location.href = "svedtest.html";
+  });
+</script>
 
-        <div class="card" style="margin-top:12px">
-          <h3>Er røvsved psykisk?</h3>
-          <p>Kort sagt: det kan være både fysisk og psykisk. Vi arbejder med hele personen — tanker, følelser og tøjvalg. Ingen dom, kun løsninger.</p>
-
-          <h4 style="margin-top:12px">Ofte stillede spørgsmål</h4>
-          <ul>
-            <li><strong>Skal jeg bruge deodorant?</strong> Hvis du har lyst — men ofte handler det om årsagerne til sveden.</li>
-            <li><strong>Kan I hjælpe på én gang?</strong> Vi starter med en samtale og laver en plan sammen.</li>
-            <li><strong>Er det pinligt?</strong> Det er helt normalt — vi har hørt værre.</li>
-          </ul>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <h3>Kundeudtalelser</h3>
-          <div class="testimonials" id="testimonials">
-            <blockquote>“Jeg troede jeg bare havde brug for deodorant, men Dr. Svedsen lærte mig at tilgive min stol.” — <em>Mette, 32</em></blockquote>
-            <blockquote>“Nu kan jeg sidde til møder uden at rejse mig med angst.” — <em>Jens, 45</em></blockquote>
-          </div>
-          <div style="margin-top:8px;text-align:right"><button id="moreTest" class="book-btn">Flere udtalelser</button></div>
-        </div>
-      </section>
-
-      <aside>
-        <div class="card booking">
-          <h3>Book en tid</h3>
-          <p class="tiny">Første samtale: 30 min. Vi lover ingen mirakler — kun tørre skridt.</p>
-          <div style="margin-top:12px">
-            <label for="name">Navn</label>
-            <input id="name" placeholder="Dit navn">
-            <label for="email">Email</label>
-            <input id="email" placeholder="din@mail.dk">
-            <label for="service">Vælg</label>
-            <select id="service">
-              <option>Samtaleterapi (30 min)</option>
-              <option>Mindfulness (45 min)</option>
-              <option>Bukse-benchmark (15 min)</option>
-            </select>
-            <div style="display:flex;gap:8px">
-              <button id="openModal" class="book-btn">Book</button>
-              <button id="randomBtn" class="book-btn" style="background:#fff;color:var(--accent);border:1px solid rgba(11,92,255,0.12)">Overrask mig</button>
-            </div>
-          </div>
-        </div>
-
-        <div style="height:12px"></div>
-        <div class="card">
-          <h4>Kontakt</h4>
-          <p class="tiny">Dr. Per Svedsen — Autoriseret psykolog<br>Telefon: 12 34 56 78<br>Email: kontakt@roevsved.dk</p>
-          <div style="margin-top:8px"><button id="faqBtn" class="book-btn" style="background:#fff;color:var(--accent);border:1px solid rgba(11,92,255,0.08)">FAQ</button></div>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <p class="tiny">© 2025 Psykologen mod Røvsved™ — Fiktiv side til underholdning. Ikke en erstatning for lægehjælp.</p>
-    </footer>
-
-    <div class="modal" id="modal">
-      <div class="panel">
-        <h3>Book forespørgsel</h3>
-        <p class="tiny">Denne booking er fiktiv — prøv at udfylde, og tryk "Send" for at få en sød bekræftelse.</p>
-        <label for="modal-name">Navn</label>
-        <input id="modal-name" placeholder="Dit navn">
-        <label for="modal-email">Email</label>
-        <input id="modal-email" placeholder="din@mail.dk">
-        <label for="modal-note">Kort note</label>
-        <textarea id="modal-note" rows="3" placeholder="Hvad vil du gerne have hjælp til?"></textarea>
-        <div style="display:flex;gap:8px;justify-content:flex-end">
-          <button id="sendBtn" class="book-btn">Send</button>
-          <button id="closeBtn" class="book-btn" style="background:#fff;color:var(--accent);border:1px solid rgba(11,92,255,0.08)">Luk</button>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <script>
-    const fill = document.getElementById('fill');
-    const svedPercent = document.getElementById('sved-percent');
-    const relaxBtn = document.getElementById('relaxBtn');
-    const modal = document.getElementById('modal');
-    const openModal = document.getElementById('openModal');
-    const closeBtn = document.getElementById('closeBtn');
-    const sendBtn = document.getElementById('sendBtn');
-    const randomBtn = document.getElementById('randomBtn');
-    const moreTest = document.getElementById('moreTest');
-
-    function setSved(n){
-      n = Math.max(0,Math.min(100,Math.round(n)));
-      fill.style.width = n + '%';
-      svedPercent.textContent = n + '%';
-    }
-
-    // Start value
-    let sved = 22;
-    setSved(sved);
-
-    // Guided breathing: reduce sved slowly
-    relaxBtn.addEventListener('click', ()=>{
-      window.location.href = "svedtest.html";
-        }
-      }, 500);
-    });
-
-    openModal.addEventListener('click', ()=> modal.classList.add('open'));
-    closeBtn.addEventListener('click', ()=> modal.classList.remove('open'));
-    sendBtn.addEventListener('click', ()=>{
-      const name = document.getElementById('modal-name').value || 'Ven';
-      modal.classList.remove('open');
-      alert('Tak, ' + name + '! Din forespørgsel er modtaget. Dr. Svedsen vil svare (i fantasi) indenfor 42 timer.');
-    });
-
-    randomBtn.addEventListener('click', ()=>{
-      const picks = [ 'Samtaleterapi (30 min)', 'Mindfulness (45 min)', 'Bukse-benchmark (15 min)' ];
-      const pick = picks[Math.floor(Math.random()*picks.length)];
-      document.getElementById('service').value = pick;
-      alert('Perfekt valg: ' + pick + ' — book når du er klar!');
-    });
-
-    moreTest.addEventListener('click', ()=>{
-      const container = document.getElementById('testimonials');
-      const extras = [
-        '“Min stol og jeg er nu forsonede.” — Emil, 27',
-        '“Endelig tør jeg sidde i sofaen uden at skifte position hvert femte minut.” — Sara, 38',
-        '“Jeg troede det var varmen. Det var mit job. Og mine jeans.” — Anders, 51'
-      ];
-      extras.forEach(t=>{
-        const b = document.createElement('blockquote');
-        b.textContent = t;
-        container.appendChild(b);
-      });
-      moreTest.disabled = true;
-    });
-
-    // lille sjov: når du scroller langt nok, øg sveden lidt
-    window.addEventListener('scroll', ()=>{
-      const pct = Math.min(40, Math.round(window.scrollY/20));
-      setSved(22 + pct);
-    });
-  </script>
 </body>
 </html>
