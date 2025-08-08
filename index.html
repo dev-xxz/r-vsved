@@ -219,17 +219,7 @@
 
     // Guided breathing: reduce sved slowly
     relaxBtn.addEventListener('click', ()=>{
-      relaxBtn.disabled = true;
-      let steps = 6; // approx 30 sekunder
-      let i = 0;
-      const interval = setInterval(()=>{
-        i++;
-        sved = Math.max(0, sved - 1);
-        setSved(sved);
-        if(i>=steps){
-          clearInterval(interval);
-          relaxBtn.disabled = false;
-          alert('Godt gået! Du føles måske lidt køligere — eller også var det bare placebo.');
+      window.location.href = "svedtest.html";
         }
       }, 500);
     });
