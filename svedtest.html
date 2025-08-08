@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Røv-åndedræt</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f9f9f9;
+    padding-top: 50px;
+  }
+  h1 { color: #444; }
+  #message {
+    font-size: 2em;
+    margin-top: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Røv-åndedræt</h1>
+<p>Tryk på knappen for at starte øvelsen</p>
+<button id="startBtn">Start</button>
+<div id="message"></div>
+
+<script>
+const msgDiv = document.getElementById('message');
+const btn = document.getElementById('startBtn');
+
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'da-DK';
+  speechSynthesis.speak(utterance);
+}
+
+btn.addEventListener('click', () => {
+  btn.disabled = true;
+  msgDiv.textContent = "Hold vejret...";
+  speak("Hold vejret");
+  
+  let count = 5;
+  setTimeout(() => {
+    const interval = setInterval(() => {
+      msgDiv.textContent = count;
+      speak(count.toString());
+      count--;
+      if (count < 0) {
+        clearInterval(interval);
+        msgDiv.textContent = "Røvsved! Røvsved! Røvsved!";
+        speak("Røvsved røvsved røvsved");
+        btn.disabled = false;
+      }
+    }, 1000);
+  }, 1000);
+});
+</script>
+
+</body>
+</html>
